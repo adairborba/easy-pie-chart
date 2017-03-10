@@ -10,11 +10,13 @@
 				require: '?ngModel',
 				scope: {
 					percent: '=',
-					options: '='
+					options: '=',
+					barcolor: '='
 				},
 				link: function (scope, element, attrs) {
 
 					scope.percent = scope.percent || 0;
+					scope.barcolor = scope.barcolor || '#ef1e25';
 
 					/**
 					 * default easy pie chart options
@@ -35,6 +37,7 @@
 						}
 					};
 					scope.options = angular.extend(options, scope.options);
+					scope.options.barColor = scope.barcolor;
 
 					var pieChart = new EasyPieChart(element[0], options);
 

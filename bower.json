@@ -1,6 +1,6 @@
 {
-  "name": "jquery.easy-pie-chart",
-  "version": "2.1.7",
+  "name": "jquery.easy-pie-chart.ab",
+  "version": "2.1.8",
   "main": [
     "dist/jquery.easypiechart.js"
   ],

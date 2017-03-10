@@ -4,7 +4,7 @@
  *
  * @license 
  * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
- * @version 2.1.7
+ * @version 2.1.8
  **/
 
 (function (root, factory) {
@@ -19,7 +19,7 @@
     // like Node.
     module.exports = factory(require("angular"));
   } else {
-    factory(angular);
+    factory(root["angular"]);
   }
 }(this, function (angular) {
 
@@ -35,11 +35,13 @@
 				require: '?ngModel',
 				scope: {
 					percent: '=',
-					options: '='
+					options: '=',
+					barcolor: '='
 				},
 				link: function (scope, element, attrs) {
 
 					scope.percent = scope.percent || 0;
+					scope.barcolor = scope.barcolor || '#ef1e25';
 
 					/**
 					 * default easy pie chart options
@@ -60,6 +62,7 @@
 						}
 					};
 					scope.options = angular.extend(options, scope.options);
+					scope.options.barColor = scope.barcolor;
 
 					var pieChart = new EasyPieChart(element[0], options);
 
